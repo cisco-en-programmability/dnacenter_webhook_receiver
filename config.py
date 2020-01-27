@@ -47,7 +47,7 @@ DNAC_USER = 'username'
 DNAC_PASS = 'password'
 DNAC_ISSUE = 'https://ip address/dna/assurance/issueDetails?issueId='
 
-WEBEX_BOT_TOKEN = 'Nzg4OTY4ODctNmFlZS00MmU2LWJiOTItMGNlNTNjMDVjMzI1OTQ3OThjMDMtMGE4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f'
+WEBEX_BOT_TOKEN = 'your bot token'
 
 
 PAGERDUTY_INTEGRATION_KEY = 'pagerduty api key'
