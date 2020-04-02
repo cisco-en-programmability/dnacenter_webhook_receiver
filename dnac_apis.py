@@ -264,7 +264,7 @@ def get_physical_topology(ip_address, dnac_jwt_token):
     :param dnac_jwt_token: Cisco DNA C token
     :return: topology info - connected device hostname and interface
     """
-    url = DNAC_URL + '/api/v1/topology/physical-topology'
+    url = DNAC_URL + '/dna/intent/api/v1/topology/physical-topology'
     header = {'content-type': 'application/json', 'x-auth-token': dnac_jwt_token}
     response = requests.get(url, headers=header, verify=False)
     topology_json = response.json()['response']
@@ -311,7 +311,7 @@ def sync_device(device_name, dnac_jwt_token):
     """
     device_id = get_device_id_name(device_name, dnac_jwt_token)
     param = [device_id]
-    url = DNAC_URL + '/api/v1/network-device/sync?forceSync=true'
+    url = DNAC_URL + '/dna/intent/api/v1/network-device/sync?forceSync=true'
     header = {'content-type': 'application/json', 'x-auth-token': dnac_jwt_token}
     sync_response = requests.put(url, data=json.dumps(param), headers=header, verify=False)
     task = sync_response.json()['response']['taskId']
@@ -324,7 +324,7 @@ def get_all_device_info(dnac_jwt_token):
     :param dnac_jwt_token: DNA C token
     :return: DNA C device inventory info
     """
-    url = DNAC_URL + '/api/v1/network-device'
+    url = DNAC_URL + '/dna/intent/api/v1/network-device'
     header = {'content-type': 'application/json', 'x-auth-token': dnac_jwt_token}
     all_device_response = requests.get(url, headers=header, verify=False)
     all_device_info = all_device_response.json()
