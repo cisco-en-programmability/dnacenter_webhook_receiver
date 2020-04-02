@@ -29,34 +29,24 @@ __license__ = "Cisco Sample Code License, Version 1.1"
 # the Webex Bot Auth, Webex URL and Space name
 # the Webhook username and password
 # Cisco DNA Center access info
-# Jira Account and Project info
-# PagerDuty Integration Info
+
 
 WEBEX_TEAMS_URL = 'https://api.ciscospark.com/v1'
 WEBEX_TEAMS_AUTH = 'Bearer ' + 'paste your bot token here'
 WEBEX_TEAMS_ROOM = 'your space name'
 WEBEX_BOT_ID = 'your bot id'
+WEBEX_BOT_TOKEN = 'your Webex Teamss Bot token'
 
 WEBHOOK_URL = 'https://your webhook receiver'
 WEBHOOK_USERNAME = 'username'
 WEBHOOK_PASSWORD = 'password'
 
-DNAC_IP = '10.93.141.35'
-DNAC_URL = 'https://' + ip address
+DNAC_IP = 'ip address'
+DNAC_URL = 'https://' + 'ip address'
 DNAC_USER = 'username'
 DNAC_PASS = 'password'
-DNAC_ISSUE = 'https://ip address/dna/assurance/issueDetails?issueId='
-
-WEBEX_BOT_TOKEN = 'Nzg4OTY4ODctNmFlZS00MmU2LWJiOTItMGNlNTNjMDVjMzI1OTQ3OThjMDMtMGE4_PF84_1eb65fdf-9643-417f-9974-ad72cae0e10f'
 
 
-PAGERDUTY_INTEGRATION_KEY = 'pagerduty api key'
-PAGERDUTY_EVENTS_URL = 'https://events.pagerduty.com/v2/enqueue'
 
-JIRA_API_KEY = 'jira api key'
-JIRA_URL = 'https://jira incidents url'
-JIRA_EMAIL = 'username@domain.com'
-JIRA_PROJECT = 'jira project'
-JIRA_ISSUES = 'https://jira issues url'
 
 
