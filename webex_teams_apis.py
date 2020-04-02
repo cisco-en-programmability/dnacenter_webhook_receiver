@@ -122,3 +122,16 @@ def get_bot_message_by_id(message_id, bot_id):
             return response_json['text']
     return None
 
+
+def post_room_card_message(space_name, card_message):
+    """
+    This function will post a adaptive card message {card_message} to the Webex Teams space with the {space_name}
+    :param space_name: Webex Teams message
+    :param card_message: card message
+    :return: none
+    """
+    space_id = get_room_id(space_name)
+    url = WEBEX_TEAMS_URL + '/messages'
+    header = {'content-type': 'application/json', 'authorization': WEBEX_TEAMS_AUTH}
+    requests.post(url, data=json.dumps(card_message), headers=header, verify=False)
+
