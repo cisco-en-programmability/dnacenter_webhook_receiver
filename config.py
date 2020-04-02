@@ -35,7 +35,7 @@ WEBEX_TEAMS_URL = 'https://api.ciscospark.com/v1'
 WEBEX_TEAMS_AUTH = 'Bearer ' + 'paste your bot token here'
 WEBEX_TEAMS_ROOM = 'your space name'
 WEBEX_BOT_ID = 'your bot id'
-WEBEX_BOT_TOKEN = 'your Webex Teamss Bot token'
+WEBEX_BOT_TOKEN = 'your Webex Teams Bot token'
 
 WEBHOOK_URL = 'https://your webhook receiver'
 WEBHOOK_USERNAME = 'username'
@@ -45,7 +45,3 @@ DNAC_IP = 'ip address'
 DNAC_URL = 'https://' + 'ip address'
 DNAC_USER = 'username'
 DNAC_PASS = 'password'
-
-
-
-
