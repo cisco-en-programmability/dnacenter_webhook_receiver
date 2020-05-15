@@ -40,9 +40,6 @@ from flask_basicauth import BasicAuth
 from urllib3.exceptions import InsecureRequestWarning  # for insecure https warnings
 
 import webex_teams_apis
-import utils
-import reporting
-import teams_bot
 
 from config import WEBEX_TEAMS_AUTH, WEBEX_TEAMS_URL, WEBEX_TEAMS_ROOM, WEBEX_BOT_ID
 from config import WEBHOOK_USERNAME, WEBHOOK_PASSWORD, WEBHOOK_URL
