@@ -47,8 +47,7 @@ import teams_bot
 from config import WEBEX_TEAMS_AUTH, WEBEX_TEAMS_URL, WEBEX_TEAMS_ROOM, WEBEX_BOT_ID
 from config import WEBHOOK_USERNAME, WEBHOOK_PASSWORD, WEBHOOK_URL
 from config import DNAC_URL
-from config import PAGERDUTY_EVENTS_URL, PAGERDUTY_INTEGRATION_KEY
-from config import JIRA_URL, JIRA_API_KEY, JIRA_EMAIL, JIRA_PROJECT, JIRA_ISSUES
+
 
 os.environ['TZ'] = 'America/Los_Angeles'  # define the timezone for PST
 time.tzset()  # adjust the timezone, more info https://help.pythonanywhere.com/pages/SettingTheTimezone/
@@ -113,7 +112,6 @@ def webhook():
         issue_status = dnac_notification['details']['Assurance Issue Status']
         dnac_issue_url = dnac_notification['ciscoDnaEventLink']
 
-
         # create the summary Cisco DNA Center log
         new_info = {'severity': severity, 'category': category, 'timestamp': dnac_notification['timestamp']}
         new_info.update({'Assurance Issue Name': issue_name, 'Assurance Issue Details': issue_description})
@@ -128,7 +126,6 @@ def webhook():
             filehandle.write('%s\n' % json.dumps(new_info))
 
         # construct the Webex Teams message
-        # add url's for Jira Incident # and Cisco DNA Center Issue
 
         # use this section for Webex Teams Markdown messages
         '''
