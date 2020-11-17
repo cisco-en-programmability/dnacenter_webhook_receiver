@@ -35,8 +35,6 @@ from urllib3.exceptions import InsecureRequestWarning  # for insecure https warn
 
 urllib3.disable_warnings(InsecureRequestWarning)  # disable insecure https warnings
 
-basic_auth = HTTPBasicAuth('tmelabs', 'Dna@labrocks')
-
 from config import WEBHOOK_URL, WEBHOOK_USERNAME, WEBHOOK_PASSWORD
 
 
@@ -114,6 +112,5 @@ basic_auth = HTTPBasicAuth(WEBHOOK_USERNAME, WEBHOOK_PASSWORD)
 url = WEBHOOK_URL
 header = {'content-type': 'application/json'}
 response = requests.post(url, auth=basic_auth, data=json.dumps(dnac_param), headers=header, verify=False)
-response_json = response.json()
 print('\nWebhook notification status code: ', response.status_code)
-print('\nWebhook notification response: ', response_json)
+print('\nWebhook notification response: ', response.text)

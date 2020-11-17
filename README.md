@@ -1,6 +1,5 @@
-# Get Webhook'd
-# Cisco DNA Center Webhook Receiver
 
+# Cisco DNA Center Webhook Receiver
 
 
 **Cisco Products & Services:**
@@ -17,9 +16,14 @@
  - "flask_receiver.py" - webhook receiver 
  - "config.py" - configure your lab environment
  - "test_webhook_receiver" - app to test the webhook receiver without Cisco DNA Center
+ - The notifications received will be save to the file "all_webhooks_detailed.log"
  - Start the Flask App
+ - Test by browsing to your receiver home page
  - Configure Cisco DNA Center Webhooks to send notifications to your new receiver
- - Trigger alerts for the configured webhooks
+ - Trigger events for the configured webhooks
+ - Verify the events are received by the webhook receiver
+ - Sample Output:
+ 
  
  This sample code is for proof of concepts and labs
 
