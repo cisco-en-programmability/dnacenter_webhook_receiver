@@ -46,6 +46,15 @@ urllib3.disable_warnings(InsecureRequestWarning)  # disable insecure https warni
 from config import WEBHOOK_URL, WEBHOOK_USERNAME, WEBHOOK_PASSWORD
 
 
+def pprint(json_data):
+    """
+    Pretty print JSON formatted data
+    :param json_data:
+    :return:
+    """
+    print(json.dumps(json_data, indent=4, separators=(' , ', ' : ')))
+
+
 app = Flask(__name__)
 
 app.config['BASIC_AUTH_USERNAME'] = WEBHOOK_USERNAME
@@ -70,7 +79,7 @@ def webhook():
 
         # print the received notification
         print('Payload: ')
-        print(request_json)
+        pprint(request_json)
 
         # save as a file, create new file if not existing, append to existing file
         # full details of each notification to file 'all_webhooks_detailed.json'
