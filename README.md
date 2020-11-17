@@ -4,11 +4,11 @@
 
 **Cisco Products & Services:**
 
-- Cisco DNA Center, Webhook receiver
+- Cisco DNA Center
 
 **Tools & Frameworks:**
 
-- Python environment to run the Flask App
+- Python environment to run the Flask App as a Webhook Receiver
 
 **Usage**
 
