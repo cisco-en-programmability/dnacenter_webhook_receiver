@@ -34,7 +34,7 @@ Users my continue the development of this application to parse the received even
       Webhook notification response:  Webhook notification received
    
    - from "flask_receiver.py":
-
+        ```python
         WARNING: This is a development server. Do not use it in a production deployment.
            Use a production WSGI server instead.
          * Debug mode: on
@@ -75,6 +75,7 @@ Users my continue the development of this application to parse the received even
             "context" : "" , 
             "tenantId" : ""
         }
+```
 
  
  This sample code is for proof of concepts and labs
