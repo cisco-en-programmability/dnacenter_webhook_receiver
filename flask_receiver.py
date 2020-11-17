@@ -43,6 +43,8 @@ time.tzset()  # adjust the timezone, more info https://help.pythonanywhere.com/p
 
 urllib3.disable_warnings(InsecureRequestWarning)  # disable insecure https warnings
 
+from config import WEBHOOK_URL, WEBHOOK_USERNAME, WEBHOOK_PASSWORD
+
 
 app = Flask(__name__)
 
@@ -63,7 +65,7 @@ def index():
 @basic_auth.required
 def webhook():
     if request.method == 'POST':
-        print('Cisco DNA Center Webhook Received')
+        print('Webhook Received')
         request_json = request.json
 
         # print the received notification
@@ -71,11 +73,13 @@ def webhook():
         print(request_json)
 
         # save as a file, create new file if not existing, append to existing file
-        # full details of each notification to file 'all_webhooks_detailed.log'
+        # full details of each notification to file 'all_webhooks_detailed.json'
 
-        with open('all_webhooks_detailed.log', 'a') as filehandle:
+        with open('all_webhooks_detailed.json', 'a') as filehandle:
             filehandle.write('%s\n' % json.dumps(request_json))
-        dnac_notification = request_json
+
+        # steps required by the notification
+        notification = request_json
 
         return 'Webhook notification received', 202
     else:
