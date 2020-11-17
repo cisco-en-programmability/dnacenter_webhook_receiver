@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 
-Copyright (c) 2019 Cisco and/or its affiliates.
+Copyright (c) 2020 Cisco and/or its affiliates.
 
 This software is licensed to you under the terms of the Cisco Sample
 Code License, Version 1.1 (the "License"). You may obtain a copy of the
@@ -22,22 +22,25 @@ or implied.
 __author__ = "Gabriel Zapodeanu TME, ENB"
 __email__ = "gzapodea@cisco.com"
 __version__ = "0.1.0"
-__copyright__ = "Copyright (c) 2019 Cisco and/or its affiliates."
+__copyright__ = "Copyright (c) 2020 Cisco and/or its affiliates."
 __license__ = "Cisco Sample Code License, Version 1.1"
 
 import requests
 import json
 import urllib3
-import utils
 
 from requests.auth import HTTPBasicAuth  # for Basic Auth
-from config import WEBHOOK_URL, WEBHOOK_USERNAME, WEBHOOK_PASSWORD
 
 from urllib3.exceptions import InsecureRequestWarning  # for insecure https warnings
 
 urllib3.disable_warnings(InsecureRequestWarning)  # disable insecure https warnings
 
-basic_auth = HTTPBasicAuth(WEBHOOK_USERNAME, WEBHOOK_PASSWORD)
+basic_auth = HTTPBasicAuth('tmelabs', 'Dna@labrocks')
+
+from config import WEBHOOK_URL, WEBHOOK_USERNAME, WEBHOOK_PASSWORD
+
+
+# set the payload for a Cisco DNA Center new event notification
 
 dnac_param = {
     "version": "",
@@ -70,14 +73,15 @@ dnac_param = {
     "tenantId": ""
 }
 
+# set the payload for a Cisco DNA Center resolved event notification
 
 dnac_param_resolved = {
-    "version": null,
+    "version": "",
     "instanceId": "4292b3bc-a8a7-4a2e-8349-ddfae1ea8b9e",
     "eventId": "NETWORK-NON-FABRIC_WIRED-1-251",
-    "namespace": null,
-    "name": null,
-    "description": null,
+    "namespace": "",
+    "name": "",
+    "description": "",
     "type": "NETWORK",
     "category": "ALERT",
     "domain": "Connectivity",
@@ -85,7 +89,7 @@ dnac_param_resolved = {
     "severity": 1,
     "source": "Cisco DNA Assurance",
     "timestamp": 1576122993751,
-    "tags": null,
+    "tags": "",
     "details": {
       "Type": "Network Device",
       "Assurance Issue Priority": "P1",
@@ -98,68 +102,18 @@ dnac_param_resolved = {
     "ciscoDnaEventLink": "https://10.93.141.35/dna/assurance/issueDetails?issueId=4292b3bc-a8a7-4a2e-8349-ddfae1ea8b9e",
     "note": "To programmatically get more info see here - https://<ip-address>/dna/platform/app/consumer-portal/developer-toolkit/apis?apiId=8684-39bb-4e89-a6e4",
     "tntId": "",
-    "context": null,
+    "context": "",
     "tenantId": ""
 }
 
 
-sd_wan_param = {
-    "devices": [
-        {
-            "system-ip": "21.21.21.21"
-        }
-    ],
-    "eventname": "interface-admin-state-change",
-    "type": "interface-admin-state-change",
-    "rulename": "interface-admin-state-change",
-    "component": "VPN",
-    "entry_time": 1574274686000,
-    "statcycletime": 1574274686000,
-    "message": "The interface admin-state changed to down",
-    "severity": "Critical",
-    "severity_number": 1,
-    "uuid": "303af097-12ca-4aa2-b1e8-544094a7c96d",
-    "values": [
-        {
-            "host-name": "vBond-Pod5",
-            "system-ip": "21.21.21.21",
-            "if-name": "eth0",
-            "new-admin-state": "down",
-            "vpn-id": "512"
-        }
-    ],
-    "rule_name_display": "Interface_Admin_State_Change",
-    "receive_time": 1574274686635,
-    "values_short_display": [
-        {
-            "host-name": "vBond-Pod5",
-            "system-ip": "21.21.21.21",
-            "if-name": "eth0",
-            "new-admin-state": "down"
-        }
-    ],
-    "acknowledged": False,
-    "active": True
-}
+# test the Webhook with a Cisco DNA Center sample notification
 
-
-url = 'http://127.0.0.1:5000/webhook'  # to test the Flask Web App running local
-header = {'content-type': 'application/json'}
-response = requests.post(url, auth=basic_auth, data=json.dumps(dnac_param), headers=header, verify=False)
-response_json = response.json()
-print(response_json)
-
-
-# test the Webhook with a Cisco DNA Center notification
+basic_auth = HTTPBasicAuth(WEBHOOK_USERNAME, WEBHOOK_PASSWORD)
 
 url = WEBHOOK_URL
 header = {'content-type': 'application/json'}
 response = requests.post(url, auth=basic_auth, data=json.dumps(dnac_param), headers=header, verify=False)
 response_json = response.json()
-print('\n', response_json)
-
-
-# print the HTTP BasicAuth encoding - needed for Cisco DNA Center webhook configuration
-# print('\nThe HTTP Basic Auth you will need for the Webhooks Configuration is:\n' + response.request.headers['Authorization'])
-
-
+print('\nWebhook notification status code: ', response.status_code)
+print('\nWebhook notification response: ', response_json)

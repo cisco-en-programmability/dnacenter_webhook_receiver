@@ -2,5 +2,3 @@ requests
 urllib3
 flask
 Flask-BasicAuth
-ncclient
-xmltodict
