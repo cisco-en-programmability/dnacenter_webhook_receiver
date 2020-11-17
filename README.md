@@ -2,8 +2,8 @@
 # Cisco DNA Center Webhook Receiver
 
 This repo is for a simple Flask application that will receive webhooks notifications. 
-This app is to be used only in demo or lab environment, it is not written for production. Please follow these
- recommendations for production environments: https://flask.palletsprojects.com/en/1.1.x/deploying/.
+This app is to be used only in demo or lab environments, it is not written for production. Please follow these
+ recommendations for production deployments: https://flask.palletsprojects.com/en/1.1.x/deploying/.
 
 The "flask_receiver.py" will save the notification to a file, and it will not process the notification.
 
