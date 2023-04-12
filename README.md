@@ -24,13 +24,19 @@ Users my continue the development of this application to parse the received even
  - "flask_receiver.py" - webhook receiver 
  - "config.py" - configure your lab environment
  - "test_webhook_receiver" - app to test the webhook receiver without Cisco DNA Center
- - The notifications received will be save to the file "all_webhooks_detailed.log"
+ - The notifications received will be saved to the file "all_webhooks_detailed.log"
  - Start the Flask App
  - Test by browsing to your receiver home page
  - Configure Cisco DNA Center Webhooks to send notifications to your new receiver
  - Trigger events for the configured webhooks
  - Verify the events are received by the webhook receiver
- - Sample Output:
+
+Cisco DNA Center Webhook Destination configuration using HTTP Basic Auth: 
+
+![Cisco DNA Center Webhook Configuration](https://github.com/cisco-en-programmability/dnacenter_webhook_receiver/blob/master/Webhook_Destination.png?raw=true)
+
+
+**Sample Output**
    - from "test_webhook_receiver.py":
    
       Webhook notification status code:  202
