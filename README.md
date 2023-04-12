@@ -33,7 +33,7 @@ Users my continue the development of this application to parse the received even
 
 Cisco DNA Center Webhook Destination configuration using HTTP Basic Auth: 
 
-![Cisco DNA Center Webhook Configuration](https://github.com/cisco-en-programmability/dnacenter_webhook_receiver/blob/master/Webhook_Destination.png?raw=true)
+<img src="https://github.com/cisco-en-programmability/dnacenter_webhook_receiver/blob/master/Webhook_Destination.png" width="400" />
 
 **Sample Output**
    - from "test_webhook_receiver.py":
