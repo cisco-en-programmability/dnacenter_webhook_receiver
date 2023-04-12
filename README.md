@@ -35,7 +35,6 @@ Cisco DNA Center Webhook Destination configuration using HTTP Basic Auth:
 
 ![Cisco DNA Center Webhook Configuration](https://github.com/cisco-en-programmability/dnacenter_webhook_receiver/blob/master/Webhook_Destination.png?raw=true)
 
-
 **Sample Output**
    - from "test_webhook_receiver.py":
    
