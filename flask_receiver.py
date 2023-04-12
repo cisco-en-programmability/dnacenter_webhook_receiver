@@ -25,18 +25,15 @@ __version__ = "0.1.0"
 __copyright__ = "Copyright (c) 2020 Cisco and/or its affiliates."
 __license__ = "Cisco Sample Code License, Version 1.1"
 
-
 import urllib3
 import json
 import os
 import time
 
-
 from flask import Flask, request, abort, send_from_directory
 from flask_basicauth import BasicAuth
 
 from urllib3.exceptions import InsecureRequestWarning  # for insecure https warnings
-
 
 os.environ['TZ'] = 'America/Los_Angeles'  # define the timezone for PST
 time.tzset()  # adjust the timezone, more info https://help.pythonanywhere.com/pages/SettingTheTimezone/
@@ -87,7 +84,7 @@ def webhook():
         with open('all_webhooks_detailed.json', 'a') as filehandle:
             filehandle.write('%s\n' % json.dumps(request_json))
 
-        # steps required by the notification
+        # steps required by the notification, to be developed for end user use cases
         notification = request_json
 
         return 'Webhook notification received', 202
@@ -96,4 +93,4 @@ def webhook():
 
 
 if __name__ == '__main__':
-    app.run(port=5443, debug=True)
+    app.run(port=5443, ssl_context='adhoc', debug=True)
