@@ -29,7 +29,7 @@ __license__ = "Cisco Sample Code License, Version 1.1"
 # This file contains:
 # the Webhook username and password
 
-WEBHOOK_URL = 'http://localhost:5443/webhook'  # test with Flask receiver running local
+WEBHOOK_URL = 'https://localhost:5443/webhook'  # test with Flask receiver running local
 # WEBHOOK_URL = 'http://10.93.141.38:5000/webhook  # test with Flask receiver hosted remotely to a server or cloud
 
 WEBHOOK_USERNAME = 'username'
